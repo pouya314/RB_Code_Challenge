@@ -1,0 +1,4 @@
+require 'redbubble/runner'
+
+runner = Redbubble::Runner.new
+runner.run
