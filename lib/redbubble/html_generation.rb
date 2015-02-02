@@ -1,5 +1,5 @@
 require 'erubis'
-require_relative 'settings'
+require_relative 'constants'
 
 module Redbubble
   class HtmlGeneration

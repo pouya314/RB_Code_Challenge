@@ -1,5 +1,5 @@
 require_relative 'errors'
-require_relative 'settings'
+require_relative 'constants'
 require_relative 'input_helper'
 require_relative 'input_processing'
 require_relative 'html_generation'
