@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style type="text/css">
+    nav {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><%= title %></h1>
+
+    <nav>
+      <% for link in navigation %>
+	    <a href="<%= link %>.html"><%= link %></a><% unless link == navigation.last %> // <% end %>
+	  <% end %>
+    </nav>
+  </header>
+
+  <table border="0">
+    <% for row in thumbnails %>
+	  	<tr>
+			<% for thumbnail in row %>
+				<td><img src="<%= thumbnail %>"></td>
+			<% end %>
+		</tr>
+    <% end %>
+  </table>
+</body>
+</html>
