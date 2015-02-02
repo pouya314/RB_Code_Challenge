@@ -1,5 +1,7 @@
 require_relative 'xml_parser_validations'
 require_relative 'work'
+require_relative 'constants'
+
 
 module Redbubble
   class GenericParser
@@ -19,13 +21,13 @@ module Redbubble
 
     def parse
       works = Array.new
-      doc.css('work').each do |i|
+      doc.css(NOKOGIRI[:css][:access_work_nodes]).each do |i|
           works << Work.new(
-                      if i.at_css("urls url[type='small']") == nil then nil else i.at_css("urls url[type='small']").content end,
-                      if i.at_css("exif make") == nil then nil else i.at_css("exif make").content end,
-                      if i.at_css("exif model") == nil then nil else i.at_css("exif model").content end)
+                      if i.at_css(NOKOGIRI[:css][:access_work_thumb_url]) == nil then nil else i.at_css(NOKOGIRI[:css][:access_work_thumb_url]).content end,
+                      if i.at_css(NOKOGIRI[:css][:access_work_make]) == nil then nil else i.at_css(NOKOGIRI[:css][:access_work_make]).content end,
+                      if i.at_css(NOKOGIRI[:css][:access_work_model]) == nil then nil else i.at_css(NOKOGIRI[:css][:access_work_model]).content end)
       end
-      return works
+      works
     end
   end
 end

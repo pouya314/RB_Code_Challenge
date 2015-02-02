@@ -27,7 +27,7 @@ module Redbubble
           works.take(10).map { |work| work.url }
         )
 
-        # next: pages for makes
+        # next up: pages for makes
         produce_makes_pages(makes)
       end
 
@@ -36,7 +36,7 @@ module Redbubble
           models = items.group_by { |item| item.model_name }
 
           create_html_file(
-            "#{make}.html",
+            "#{make}#{OUTPUT_FILE_EXTENSION}",
             "#{make}",
             models.keys.unshift(INDEX[:title]),
             items.take(10).map { |i| i.url }
@@ -50,7 +50,7 @@ module Redbubble
       def produce_models_pages(models, make_backref)
         models.each do |model, items|
           create_html_file(
-            "#{model}.html",
+            "#{model}#{OUTPUT_FILE_EXTENSION}",
             "#{model}",
             [INDEX[:title], make_backref],
             items.map { |i| i.url }    # show all here, not the first 10
