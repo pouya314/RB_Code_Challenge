@@ -1,7 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.6)
     erubis (2.7.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     mimemagic (0.2.1)
     mini_portile (0.6.2)
     minitest (5.4.3)
@@ -13,6 +16,7 @@ PLATFORMS
 
 DEPENDENCIES
   erubis
+  launchy
   mimemagic
   minitest (~> 5.4.2)
   nokogiri
