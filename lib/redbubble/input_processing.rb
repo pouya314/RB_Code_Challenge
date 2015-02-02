@@ -7,16 +7,16 @@ module Redbubble
       parser.parse
     end
   end
-  
+
   class XmlParser
     prepend XmlParserValidations
-    
+
     attr_accessor :doc
-    
+
     def initialize(doc)
       @doc = doc
     end
-    
+
     def parse
       works = Array.new
       doc.css('work').each do |i|

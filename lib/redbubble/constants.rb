@@ -6,3 +6,5 @@ INDEX = {
   :file_name => "index.html",
   :title     => "index"
 }
+
+VALID_INPUT_FILE_TYPE = "application/xml"
