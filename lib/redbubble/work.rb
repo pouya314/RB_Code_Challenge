@@ -9,7 +9,12 @@ module Redbubble
     end
 
     def invalid?
-      url == nil || make_name == nil || model_name == nil
+      url == nil ||
+      url.chomp.strip.empty? ||
+      make_name == nil ||
+      make_name.chomp.strip.empty? ||
+      model_name == nil ||
+      model_name.chomp.strip.empty?
     end
   end
 end
