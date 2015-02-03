@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<works>
+  <work>
+    <id>31820</id>
+    <filename>162042.jpg</filename>
+    <image_width>2206</image_width>
+    <image_height>2205</image_height>
+    <urls>
+      <!-- <url type="small">http://ih1.redbubble.net/work.31820.1.flat,135x135,075,f.jpg</url> -->
+      <url type="medium">http://ih1.redbubble.net/work.31820.1.flat,300x300,075,f.jpg</url>
+      <url type="large">http://ih1.redbubble.net/work.31820.1.flat,550x550,075,f.jpg</url>
+    </urls>
+    <exif>
+      <model></model>
+      <make>NIKON CORPORATION</make>
+    </exif>
+  </work>
+</works>
