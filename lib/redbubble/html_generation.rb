@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'erubis'
 require_relative 'constants'
 
@@ -6,8 +7,31 @@ module Redbubble
     attr_accessor :works, :output_dir_path, :output_template
 
     def initialize(works, output_dir_path)
-      @works = works.delete_if { |work| work.invalid? }  # sanitization of works happens here!
+      # 1/
+      # check this output directory path.
+      # create the directory if it does not exist already.
+      unless Dir.exist? output_dir_path
+        FileUtils::mkdir_p output_dir_path
+        puts ERRORS[:output_dir_did_not_exist_but_created]
+      end
       @output_dir_path = output_dir_path
+
+
+      # 2/
+      # validate input: 'works'
+      # - ensure it is not an empty collection.
+      # - ensure we have enough data to work with, after sanitization.
+      raise InsifficientWorkData, ERRORS[:insufficient_work_data] if works.empty?
+      valid_works = works.delete_if { |work| work.invalid? }
+      if valid_works.empty?
+        raise InsifficientWorkData, ERRORS[:insufficient_work_data]
+      else
+        @works = valid_works
+      end
+
+
+      # 3/
+      # finally, prep the output template for html rendering purpose.
       @output_template = Erubis::Eruby.new(File.read(OUTPUT_TEMPLATE))
     end
 
