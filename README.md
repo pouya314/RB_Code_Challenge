@@ -48,8 +48,8 @@ After cloning the repository to your local development machine, `cd` to the root
 
 USAGE 
 =====
-To run the application, at the root directory, invoke: 
-`$ ruby -I lib bin/redbubble [input file path goes here] [output directory path goes here]`
+To run the application, invoke the following command at the root directory
+- `$ ruby -I lib bin/redbubble [input file path goes here] [output directory path goes here]`
 
 
 TESTING INSTRUCTIONS
@@ -57,3 +57,9 @@ TESTING INSTRUCTIONS
 At the root directory: 
 - To run unit tests invoke: `$ ruby test/test_units.rb`
 - To run integration tests invoke: `$ ruby test/test_integration.rb`
+
+Code Structure
+==============
+A quick code walkthrough:
+- `bin/redbubble` is the simple launcher of the application that calls the runner.
+- `lib/redbubble/runner.rb` is, as its name suggests, the runner of the whole app. Another suitable name for it would be the controller. It's the component that owns all business objects and orchestrates their interaction, in order to get the job done. runner passes ARGV to InputHelper for some validation, then makes use of XMLParser to turn xml to a collection of ruby objects, and finally tells HTMLGeneration to produce the static files in the required location. As a bonus, it also launches system defualt browser, and navigates to the index page generated. Error handling for several exceptions also takes place in the runner. Althuogh all rescue blocks here basically just display the error message and stack trace, their separation is to demonstrate that error handling should be done in a 'specific' manner.
