@@ -20,7 +20,7 @@ NOKOGIRI = {
     :access_work_make      => "exif make",
     :access_work_model     => "exif model"
   }
-  
+
   # :xpath => {
   #   # ...
   # }
@@ -36,7 +36,7 @@ ERRORS = {
   :wrong_number_of_arguments            => "This program expects exactly 2 arguments.",
   :input_file_does_not_exist            => "Input file you specified does NOT exist.",
   :output_dir_did_not_exist_but_created => "The output directory path you specified did not exist, but we created it for you.",
-  
+
   # xml parser
   :file_not_xml => "Input file must be of type XML."
 }
