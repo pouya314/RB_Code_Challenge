@@ -70,3 +70,5 @@ A quick code walkthrough:
 - inside `lib/redbubble/templates` is where we store our output template. which is used by html_generation to render html files.
 - `test/` folder contains our unit & integration tests. all unit test files are included in `test_units.rb` so that they all can be run together. integration tests can be found in `test_integration.rb`.
 - `test/sample_data` is the folder that contains sample test data used by our test cases. Similar to fixtures in Rails.
+
+Note: In commit `52ba43e62d07e38393df35e1bc070003bad8ba7d` I explain about an assumption I made while designing the app, and the reasoning behind it.
