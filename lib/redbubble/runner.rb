@@ -13,12 +13,12 @@ module Redbubble
         # 1/
         # Handle user input
         user_input = InputHelper.new(ARGV)
-        input_file_path, output_dir_path = user_input.validate_and_prep!
+        input_file_path, output_dir_path = user_input.validate_argv!
 
         # 2/
         # Parse XML
-        parser = GenericParser.new
-        works = parser.parse(XmlParser.new(input_file_path))
+        parser = XmlParser.new(input_file_path)
+        works = parser.parse
 
         # 3/
         # Create HTML files
@@ -31,16 +31,16 @@ module Redbubble
         Launchy.open(uri) do |exception|
           puts ERRORS[:launchy_failed]
         end
-        
-      rescue NoArgumentsPassed, WrongNoOfArgs, InputFileDoesNotExist => e
+
+      rescue NoArgumentsPassed, WrongNoOfArgs => e
         puts e
         puts e.backtrace
         exit
-      rescue FileNotXML => e
+      rescue InputFileDoesNotExist, FileEmpty => e
         puts e
         puts e.backtrace
         exit
-      rescue Nokogiri::XML::SyntaxError => e
+      rescue FileNotXML, Nokogiri::XML::SyntaxError => e
         puts e
         puts e.backtrace
         exit
