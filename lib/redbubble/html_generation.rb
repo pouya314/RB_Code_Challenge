@@ -21,10 +21,10 @@ module Redbubble
       # validate input: 'works'
       # - ensure it is not an empty collection.
       # - ensure we have enough data to work with, after sanitization.
-      raise InsifficientWorkData, ERRORS[:insufficient_work_data] if works.empty?
+      raise InsufficientWorkData, ERRORS[:insufficient_work_data] if works.empty?
       valid_works = works.delete_if { |work| work.invalid? }
       if valid_works.empty?
-        raise InsifficientWorkData, ERRORS[:insufficient_work_data]
+        raise InsufficientWorkData, ERRORS[:insufficient_work_data]
       else
         @works = valid_works
       end

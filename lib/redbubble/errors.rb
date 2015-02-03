@@ -15,4 +15,4 @@ class RedBubbleError < Exception; end
 
 
   # html generation exceptions
-  class InsifficientWorkData < RedBubbleError; end
+  class InsufficientWorkData < RedBubbleError; end

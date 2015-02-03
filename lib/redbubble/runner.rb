@@ -44,7 +44,7 @@ module Redbubble
         puts e
         puts e.backtrace
         exit
-      rescue InsifficientWorkData => e
+      rescue InsufficientWorkData => e
         puts e
         puts e.backtrace
         exit
