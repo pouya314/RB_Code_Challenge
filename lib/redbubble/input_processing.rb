@@ -1,21 +1,36 @@
-require_relative 'xml_parser_validations'
 require_relative 'work'
 require_relative 'constants'
+require 'fileutils'
+require 'mimemagic'
+require 'nokogiri'
 
 
 module Redbubble
   class GenericParser
-    def parse(parser)
-      parser.parse
+    def initialize(input_file_path)
+      # General validations that apply to any file (regardless of its type).
+      raise InputFileDoesNotExist, ERRORS[:input_file_does_not_exist] unless File.file? input_file_path
+      raise FileEmpty, ERRORS[:file_empty] if File.read(input_file_path).empty?
+    end
+
+    def parse
+      raise NotImplementedError, 'You must implement the parse method'
     end
   end
 
-  class XmlParser
-    prepend XmlParserValidations
 
+  class XmlParser < GenericParser
     attr_accessor :doc
 
-    def initialize(doc)
+    def initialize(input_file_path)
+      # For Generic file validations:
+      super
+
+      # For more specific (XML file type) validations:
+      raise FileNotXML, ERRORS[:file_not_xml] unless MimeMagic.by_path(input_file_path).eql? VALID_INPUT_FILE_TYPE
+      doc = Nokogiri::XML(File.read(input_file_path)) { |config| config.strict }
+
+      # All good! document ready to be parsed.
       @doc = doc
     end
 
