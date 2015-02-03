@@ -1,5 +1,5 @@
 # program constants go here ...
-OUTPUT_TEMPLATE       = "#{File.expand_path(File.dirname(__FILE__))}/templates/output-template.eruby"
+OUTPUT_TEMPLATE       = File.join(File.expand_path(File.dirname(__FILE__)), "templates", "output-template.eruby")
 OUTPUT_PROTOCOL       = "file://"
 OUTPUT_FILE_EXTENSION = ".html"
 
@@ -46,3 +46,5 @@ ERRORS = {
   :insufficient_work_data => "Insufficient work data.",
   :output_dir_did_not_exist_but_created => "The output directory path you specified did not exist, but we created it for you."
 }
+
+NOT_IMPLEMENTED_ERROR_MSG = 'You must implement the parse method'

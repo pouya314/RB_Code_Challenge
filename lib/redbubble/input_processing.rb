@@ -14,7 +14,7 @@ module Redbubble
     end
 
     def parse
-      raise NotImplementedError, 'You must implement the parse method'
+      raise NotImplementedError, NOT_IMPLEMENTED_ERROR_MSG
     end
   end
 

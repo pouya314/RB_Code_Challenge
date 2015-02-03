@@ -2,6 +2,7 @@ require 'fileutils'
 require 'erubis'
 require_relative 'constants'
 
+
 module Redbubble
   class HtmlGeneration
     attr_accessor :works, :output_dir_path, :output_template
@@ -83,7 +84,7 @@ module Redbubble
       end
 
       def create_html_file(filename, title, nav, thumbnails)
-        File.open("#{output_dir_path}/#{filename}", "w") do |f|
+        File.open(File.join("#{output_dir_path}", "#{filename}"), "w") do |f|
           f.puts output_template.result(
             :title      => title,
             :navigation => nav,
