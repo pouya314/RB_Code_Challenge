@@ -63,3 +63,10 @@ Code Structure
 A quick code walkthrough:
 - `bin/redbubble` is the simple launcher of the application that calls the runner.
 - `lib/redbubble/runner.rb` is, as its name suggests, the runner of the whole app. Another suitable name for it would be the controller. It's the component that owns all business objects and orchestrates their interaction, in order to get the job done. runner passes ARGV to InputHelper for some validation, then makes use of XMLParser to turn xml to a collection of ruby objects, and finally tells HTMLGeneration to produce the static files in the required location. As a bonus, it also launches system defualt browser, and navigates to the index page generated. Error handling for several exceptions also takes place in the runner. Althuogh all rescue blocks here basically just display the error message and stack trace, their separation is to demonstrate that error handling should be done in a 'specific' manner.
+- `lib/redbubble/input_helper.rb`, `lib/redbubble/input_processing.rb` and `lib/redbubble/html_generation.rb` are our business logic objects.
+- `lib/redbubble/work.rb` is our data model class.
+- `lib/redbubble/errors.rb` contains our app specific exceptions.
+- `lib/redbubble/constants.rb` contains constant values.
+- inside `lib/redbubble/templates` is where we store our output template. which is used by html_generation to render html files.
+- `test/` folder contains our unit & integration tests. all unit test files are included in `test_units.rb` so that they all can be run together. integration tests can be found in `test_integration.rb`.
+- `test/sample_data` is the folder that contains sample test data used by our test cases. Similar to fixtures in Rails.
