@@ -1,4 +1,4 @@
-DESCRIPTION
+Description
 ===================
 This application creates a set of static HTML files from an XML image data source.
 
@@ -17,12 +17,12 @@ Each Camera Model HTML page contains:
 - Navigation that allows the user to browse to the index page and the camera make
 
 
-ENVIRONMENTS
+Environments
 ============
 This application was developed on Mac OS X, version 10.9.5, however it should run on all Unix-like operating systems.
 
 
-SYSTEM DEPENDENCIES & CONFIGURATION
+Dependencies
 ===================================
 You need to have ruby installed on your system before installing and running the application. During development `rbenv` was used to install and manage ruby versions. The specific (local) ruby version used to develop this application was `2.1.2`.
 
@@ -41,22 +41,23 @@ For integration tests to run, you need to have PhantomJS installed on your machi
 While installing PhantomJS, homebrew might update OpenSSL. This made me unable to run `bundle install` anymore. What I did to solve this problem was to rebuild my installation of ruby 2.1.2 (of course through rbenv) and it re-linked against the newly updated SSL.
 
 
-INSTALLATION INSTRUCTIONS
+Installation Instructions
 =========================
 After cloning the repository to your local development machine, `cd` to the root directory and invoke `$ bundle install`. This will grab all dependencies specified in `Gemfile` and install them. Once this is done, the application is ready to run.
 
 
-USAGE 
+Usage 
 =====
 To run the application, invoke the following command at the root directory
 - `$ ruby -I lib bin/redbubble [input file path goes here] [output directory path goes here]`
 
 
-TESTING INSTRUCTIONS
+Testing Instructions
 ====================
 At the root directory: 
 - To run unit tests invoke: `$ ruby test/test_units.rb`
 - To run integration tests invoke: `$ ruby test/test_integration.rb`
+
 
 Code Structure
 ==============
