@@ -1,1 +1,3 @@
-# runs all unit tests...
+require 'minitest/autorun'
+
+require_relative 'test_work'
