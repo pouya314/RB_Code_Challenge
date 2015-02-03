@@ -43,5 +43,6 @@ ERRORS = {
   :file_not_xml => "Input file must be of type XML.",
 
   # html generation
+  :insufficient_work_data => "Insufficient work data."
   :output_dir_did_not_exist_but_created => "The output directory path you specified did not exist, but we created it for you."
 }
