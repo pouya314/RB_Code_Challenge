@@ -5,8 +5,8 @@ require_relative '../lib/redbubble/input_processing'
 
 class TestHTMLGeneration < MiniTest::Test
   def setup
-    @sample_data_folder_path   = "#{File.expand_path(File.dirname(__FILE__))}/sample_data"
-    @sample_output_folder_path = "#{File.expand_path(File.dirname(__FILE__))}/sample_output"
+    @sample_data_folder_path   = File.join(File.expand_path(File.dirname(__FILE__)), "sample_data")
+    @sample_output_folder_path = File.join(File.expand_path(File.dirname(__FILE__)), "sample_output")
 
     # create the sample output folder if it does not exist.
     # we wanna have a pre-existing folder in place, for some test cases.
@@ -23,19 +23,19 @@ class TestHTMLGeneration < MiniTest::Test
   end
 
   def test_html_generation_with_invalid_works
-    parser = Redbubble::XmlParser.new("#{@sample_data_folder_path}/invalid_input.xml")
+    parser = Redbubble::XmlParser.new(File.join(@sample_data_folder_path, "invalid_input.xml"))
     result = parser.parse
     assert_raises(InsufficientWorkData) {Redbubble::HtmlGeneration.new(result, @sample_output_folder_path)}
   end
 
   def give_me_valid_works_collection
-    parser = Redbubble::XmlParser.new("#{@sample_data_folder_path}/valid_input.xml")
+    parser = Redbubble::XmlParser.new(File.join(@sample_data_folder_path, "valid_input.xml"))
     return parser.parse
   end
 
   def test_html_generation_preps_output_directory_if_not_exist_and_geneartes_files_in_it
     result = give_me_valid_works_collection
-    my_new_folder = "#{File.expand_path(File.dirname(__FILE__))}/my_new_folder"
+    my_new_folder = File.join(File.expand_path(File.dirname(__FILE__)), "my_new_folder")
     generation = Redbubble::HtmlGeneration.new(result, my_new_folder)
     generation.go!
     assert Dir.exist? my_new_folder
