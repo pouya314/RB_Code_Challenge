@@ -32,11 +32,16 @@ ERRORS = {
   :launchy_failed => "Launchy tried but failed to open your default browser. Please open the index.html file which can be found in the output directory you specified.",
 
   # input helper errors
-  :no_arguments_passed                  => "You need to pass in some arguments.",
-  :wrong_number_of_arguments            => "This program expects exactly 2 arguments.",
-  :input_file_does_not_exist            => "Input file you specified does NOT exist.",
-  :output_dir_did_not_exist_but_created => "The output directory path you specified did not exist, but we created it for you.",
+  :no_arguments_passed       => "You need to pass in some arguments.",
+  :wrong_number_of_arguments => "This program expects exactly 2 arguments.",
+
+  # generic parser (for all file types)
+  :input_file_does_not_exist => "Input file you specified does NOT exist.",
+  :file_empty                => "Input file cannot be empty.",
 
   # xml parser
-  :file_not_xml => "Input file must be of type XML."
+  :file_not_xml => "Input file must be of type XML.",
+
+  # html generation
+  :output_dir_did_not_exist_but_created => "The output directory path you specified did not exist, but we created it for you."
 }
